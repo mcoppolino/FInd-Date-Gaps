@@ -1,0 +1,39 @@
+Author Michael Coppolino
+michael_coppolino@brown.edu
+
+README
+
+Given the algorithm find_gaps_v0 and example data, my task was to optimize runtime.
+
+I made 3 additional versions v1, v2 and v3 where each version copies the previous
+version's implementation and adds an additional optimization. This was done so when
+running test_all_versions() in main.py, you can see how much each change affected the
+speed of the algorithm. The different versions can be found in find_gaps.py
+
+I measured the optimization using wall clock time fetched from the timeit API.
+The function timeit.timeit(function, number=100000) takes in a function and an
+optional parameter for number of runs, and returns the wall clock time that it
+took the current machine to execute the code. This isn't the best way to test
+optimization, but it will suffice for showing general improvement. On my machine,
+I found the following results (with some fluctuation depending on cpu usage):
+
+######## OUTPUT OF test_final_result() ########
+
+    Running v0 2000000 times...
+    V0 time: 9.611963007
+
+    Running v3 2000000 times...
+    V3 time: 7.167975263999999
+
+    Wall clock runtime decreased by 25.43%
+
+######## OUTPUT OF test_all_versions() ########
+
+    V0 time: 10.253987774999999
+    V1 time: 9.922970841000001
+    V2 time: 9.873559966999998
+    V3 time: 7.516625779999998
+
+I found across many runs that my version is 25% faster than the original version.
+I cannot guarantee that you can replicate these results on your machine but I can
+guarantee that V3 will run significantly faster than V0.
